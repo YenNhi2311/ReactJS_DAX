@@ -11,7 +11,7 @@ import ProfileKh from "./page/users/profileKH";
 import GioHang from "./page/users/giohang";
 import ThanhToan from "./page/users/ThanhToan";
 import HoanThanh from "./page/users/HoanThanh";
-import History from "./page/users/History";
+import History from "./page/users/MainContent";
 import MainLayout from "./MainLayout";
 
 // Import các trang quản trị
@@ -38,7 +38,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route element={<MainLayout />}>
-          <Route path="/home" element={<TrangChu />} />
+          <Route path="/" element={<TrangChu />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/chitiet" element={<ShopSingle />} />
           <Route path="/ttkhachhang" element={<ProfileKh />} />

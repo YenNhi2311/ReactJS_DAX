@@ -7,10 +7,8 @@ import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
@@ -53,7 +51,7 @@ const Sidebar = () => {
           backgroundColor: "transparent !important",
         },
         "& .pro-inner-item": {
-          padding: "5px 10px 5px 20px !important",
+          padding: "5px 20px 5px 20px !important",
         },
         "& .pro-inner-item:hover": {
           color: "#868dfb !important",
@@ -133,7 +131,7 @@ const Sidebar = () => {
             >
               <Item
                 title="Danh sách khách hàng"
-                to="/admin/team"
+                to="/admin/form"
                 icon={<PeopleOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
@@ -187,6 +185,7 @@ const Sidebar = () => {
                 setSelected={setSelected}
               />
             </SubMenu>
+
             <SubMenu
               title="Quản lý loại"
               icon={<PersonOutlinedIcon />}
@@ -214,7 +213,7 @@ const Sidebar = () => {
             >
               <Item
                 title="Danh sách hóa đơn"
-                to="/admin/form"
+                to="/admin/invoices"
                 icon={<PersonOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
