@@ -1,8 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
-// Set up default config for http requests here
-
-// Please have a look at here `https://github.com/axios/axios#request-config` for the full list of configs
+import { Cookies } from "react-cookie";
 
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -11,10 +9,19 @@ const axiosClient = axios.create({
   },
   paramsSerializer: (params) => queryString.stringify(params),
 });
+
 axiosClient.interceptors.request.use(async (config) => {
-  // Handle token here ...
+  const cookie = new Cookies();
+  const token = cookie.get("token");
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
+}, (error) => {
+  return Promise.reject(error);
 });
+
 axiosClient.interceptors.response.use(
   (response) => {
     if (response && response.data) {
@@ -27,4 +34,5 @@ axiosClient.interceptors.response.use(
     throw error;
   }
 );
+
 export default axiosClient;

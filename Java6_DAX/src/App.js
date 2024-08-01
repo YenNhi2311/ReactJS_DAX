@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 // Import các trang người dùng
 import Shop from "./page/users/Shop";
@@ -27,6 +27,7 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/calendar";
+import ProductAdmin from "./scenes/product/ProductAdmin";
 
 import "./Admin.css";
 
@@ -39,8 +40,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<MainLayout />}>
           <Route path="/home" element={<TrangChu />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/chitiet" element={<ShopSingle />} />
+          <Route path="/shop" element={<Shop />} />          
+          <Route path="/chitiet" element={<ShopSingle />}>
+            <Route path=""/>
+            <Route path=":id"/>
+          </Route>
           <Route path="/ttkhachhang" element={<ProfileKh />} />
           <Route path="/giohang" element={<GioHang />} />
           <Route path="/thanhtoan" element={<ThanhToan />} />
@@ -59,9 +63,14 @@ function App() {
           <Route path="/admin/pie" element={<Pie />} />
           <Route path="/admin/line" element={<Line />} />
           <Route path="/admin/faq" element={<FAQ />} />
-          <Route path="/admin/calendar" element={<Calendar />} />
-          <Route path="/admin/geography" element={<Geography />} />
+          <Route path="/admin/products" element={<ProductAdmin />}/>
+          <Route path="/admin/geography" element={<Geography />} />          
+          <Route path="/admin/calendar" element={<Calendar />} >
+            <Route path="" />
+            <Route path=":id" />
+          </Route>
         </Route>
+        <Route path="/" element={<Navigate to="/home" replace />} />
       </Routes>
     </Router>
   );
